@@ -8,22 +8,22 @@ const testimonials = [
   {
     name: "Sarah M.",
     avatar: "SM",
-    role: "Date Creator",
-    text: "I posted a sunset picnic and got 23 bids in two hours. The winner was charming  we talked until midnight. This actually works.",
+    role: "Posted her first date in March",
+    text: "I was skeptical. I posted a picnic at the botanical garden expecting nothing. Got 14 bids in an hour. The guy who won brought a guitar. We've been together four months now.",
     rating: 5,
   },
   {
     name: "James K.",
     avatar: "JK",
-    role: "Bidder",
-    text: "Won a cooking class auction last week. The whole thing felt safe, transparent, and genuinely exciting. Already bidding on my next one.",
+    role: "Won 6 auctions, counting",
+    text: "I've tried every dating app. This is the only one where I actually look forward to showing up. You already know the person wants to be there. That changes everything.",
     rating: 5,
   },
   {
     name: "Priya R.",
     avatar: "PR",
-    role: "Both",
-    text: "New to the city and didn't know a soul. Within a month I'd been on five real dates with real people. The verification system gave me confidence to show up.",
+    role: "New to NYC, zero network",
+    text: "Moved here for work, didn't know anyone. Within three weeks I'd been on four real dates. A pottery class, two dinners, a sunrise hike. I've never felt less lonely in a new city.",
     rating: 5,
   },
 ];
@@ -72,12 +72,13 @@ export default function SocialProof() {
             Real people, real dates
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-[var(--text-1)] mb-4">
-            They showed up.
+            Don&apos;t take our word for it.
             <br />
-            So will you.
+            Take theirs.
           </h2>
           <p className="max-w-xl mx-auto text-[var(--text-2)] text-lg">
-            50,000 people are already turning dating into something they actually look forward to.
+            Thousands of people have already stopped swiping and started showing
+            up. Here&apos;s what happened.
           </p>
         </motion.div>
 
@@ -208,10 +209,10 @@ export default function SocialProof() {
           className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4"
         >
           {[
-            { value: "50K+", label: "Members" },
+            { value: "50K+", label: "People showing up" },
             { value: "200K+", label: "Dates posted" },
-            { value: "$2.1M", label: "Bids placed" },
-            { value: "4.8", label: "App rating" },
+            { value: "$2.1M", label: "In bids placed" },
+            { value: "98%", label: "Actually met up" },
           ].map((stat) => (
             <div
               key={stat.label}

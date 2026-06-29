@@ -25,8 +25,8 @@ export default function Footer() {
               </span>
             </a>
             <p className="text-sm text-[var(--text-2)] leading-relaxed mb-5">
-              The dating auction platform for real-life connections. Create,
-              bid, meet.
+              The dating app for people who are done swiping. Post a date, get
+              bids, meet in real life.
             </p>
             {/* Social icons */}
             <div className="flex gap-2">
@@ -70,7 +70,7 @@ export default function Footer() {
             &copy; {new Date().getFullYear()} irlmeet. All rights reserved.
           </p>
           <p className="text-xs text-[var(--text-3)]">
-            Built with love for real connections.
+            Built for people who show up.
           </p>
         </div>
       </div>

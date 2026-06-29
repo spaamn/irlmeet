@@ -6,9 +6,9 @@ import { Heart, Menu, X } from "lucide-react";
 import ThemeToggle from "./ThemeToggle";
 
 const navLinks = [
-  { label: "Features", href: "#features" },
-  { label: "How It Works", href: "#how-it-works" },
-  { label: "Activity", href: "#social-proof" },
+  { label: "Why irlmeet", href: "#features" },
+  { label: "How it works", href: "#how-it-works" },
+  { label: "Stories", href: "#social-proof" },
 ];
 
 export default function Header() {

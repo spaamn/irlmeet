@@ -23,15 +23,15 @@ export default function FinalCTA() {
           </motion.div>
 
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter text-[var(--text-1)] mb-6">
-            Your next great story
+            Your weekend is coming up.
             <br />
-            <span className="text-gradient">starts with a bid.</span>
+            <span className="text-gradient">What&apos;s the plan?</span>
           </h2>
 
           <p className="max-w-xl mx-auto text-lg md:text-xl text-[var(--text-2)] leading-relaxed mb-10">
-            Stop swiping. Stop waiting. Post the date you&apos;ve been dreaming
-            of  or bid on someone else&apos;s. Either way, you&apos;re meeting in
-            real life by the weekend.
+            Another Friday night scrolling? Or a real date with someone who
+            raised their hand and said &ldquo;I want to meet you&rdquo;? Your
+            call. But the auction&apos;s already live.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -39,18 +39,17 @@ export default function FinalCTA() {
               href="#"
               className="group inline-flex items-center gap-2.5 px-10 py-5 rounded-full btn-accent text-lg font-semibold"
             >
-              Start Your First Auction
+              Post Your First Date
               <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1.5" />
             </a>
             <a
-              href="#features"
+              href="#how-it-works"
               className="inline-flex items-center gap-2 px-8 py-5 rounded-full btn-ghost text-base font-semibold"
             >
-              Learn More
+              See How It Works
             </a>
           </div>
 
-          {/* Trust line */}
           <motion.p
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -58,7 +57,7 @@ export default function FinalCTA() {
             transition={{ delay: 0.5, duration: 0.6 }}
             className="mt-10 text-sm text-[var(--text-3)]"
           >
-            Free to start. No credit card. Cancel anytime.
+            Free to start. No credit card. Show up when you&apos;re ready.
           </motion.p>
         </motion.div>
       </div>

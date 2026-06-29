@@ -7,30 +7,30 @@ const steps = [
   {
     number: "01",
     icon: PenLine,
-    title: "You create it",
+    title: "You post a date",
     description:
-      "The date you actually want. Rooftop drinks. A gallery walk. A cooking class. Set the scene, pick your price, and post it.",
+      "Not a bio. Not a photo gallery. A real plan: \"Sunset hike at Runyon, Saturday 6pm, my treat.\" Set a starting bid. Hit post.",
   },
   {
     number: "02",
     icon: Megaphone,
-    title: "They discover it",
+    title: "People see it and want in",
     description:
-      "Your date hits the marketplace. Real people browse, get excited, and see something they genuinely want to be part of.",
+      "Your date hits the feed. Real people in your city see it. Some just scroll. Others think \"hell yes\" and place a bid.",
   },
   {
     number: "03",
     icon: Coins,
-    title: "Bidding war",
+    title: "The auction climbs",
     description:
-      "They bid. You watch it climb. Every offer is someone saying &ldquo;I want to meet you.&rdquo; When the timer ends, highest bid wins.",
+      "Bids roll in. You watch the number climb. Every dollar is someone raising their hand saying \"pick me.\" Timer counts down.",
   },
   {
     number: "04",
     icon: Handshake,
-    title: "You meet",
+    title: "You meet in real life",
     description:
-      "Swap numbers. Lock in the details. Show up. No games, no ghosting  just two people who both said yes to a real moment.",
+      "Winner's confirmed. You swap numbers. Pick the exact spot. Show up. No games. Just two people who both said yes.",
   },
 ];
 
@@ -61,13 +61,13 @@ export default function HowItWorks() {
             How It Works
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-[var(--text-1)] mb-4">
-            From post to &ldquo;see you there&rdquo;
+            Four steps.
             <br />
-            in four simple steps
+            Zero small talk.
           </h2>
           <p className="max-w-xl mx-auto text-[var(--text-2)] text-lg">
-            No complexity. No confusion. Just a straight line from your idea to
-            a real person across the table.
+            From your first post to your first real date. No endless matching.
+            No &ldquo;hey&rdquo; messages. Just a straight line to showing up.
           </p>
         </motion.div>
 

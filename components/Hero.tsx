@@ -17,7 +17,7 @@ export default function Hero() {
         >
           <Sparkles className="w-4 h-4 text-[var(--accent)]" />
           <span className="text-sm font-medium text-[var(--text-2)]">
-            Where real-life dating meets the auction block
+            The dating app for people who are done swiping
           </span>
         </motion.div>
 
@@ -28,11 +28,11 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
           className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tighter leading-[1.05] mb-8 text-[var(--text-1)]"
         >
-          You dream it.
+          The dates you actually want.
           <br />
-          They bid on it.
+          With people who actually
           <br />
-          <span className="text-gradient-shimmer">You meet.</span>
+          <span className="text-gradient-shimmer">show up.</span>
         </motion.h1>
 
         {/* Subheading */}
@@ -42,10 +42,10 @@ export default function Hero() {
           transition={{ duration: 0.7, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
           className="max-w-2xl mx-auto text-lg md:text-xl text-[var(--text-2)] leading-relaxed mb-12"
         >
-          Post the date you&apos;ve always wanted  a rooftop dinner, a gallery
-          opening, a sunrise hike. Let excited strangers compete to join you.
-          When the bidding ends, you meet face to face. No swiping. No small
-          talk. Just real moments with real people who wanted to be there.
+          You post a date. A rooftop dinner. A sunrise hike. A gallery opening.
+          Real people bid to join you. When the auction ends, you meet face to
+          face. No endless texting. No ghosting. No &ldquo;hey.&rdquo; Just a
+          real plan with someone who wanted to be there.
         </motion.p>
 
         {/* CTA Buttons */}
@@ -59,7 +59,7 @@ export default function Hero() {
             href="#"
             className="group inline-flex items-center gap-2.5 px-9 py-4 rounded-full btn-accent text-base font-semibold"
           >
-            Create Your First Date
+            Create Your Date
             <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1.5" />
           </a>
           <a
@@ -79,9 +79,9 @@ export default function Hero() {
         >
           <div className="grid grid-cols-3 gap-6">
             {[
-              { value: "50K+", label: "Active members" },
-              { value: "12K", label: "Dates completed" },
-              { value: "4.9", label: "Average rating" },
+              { value: "50K+", label: "People on irlmeet" },
+              { value: "12K", label: "Real dates happened" },
+              { value: "98%", label: "Actually met up" },
             ].map((stat) => (
               <div key={stat.label} className="text-center">
                 <div className="text-2xl md:text-3xl font-bold text-[var(--text-1)] tracking-tight">
