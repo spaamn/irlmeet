@@ -22,17 +22,11 @@ export default function FinalCTA() {
             <Heart className="w-8 h-8 text-[var(--accent)]" fill="var(--accent)" />
           </motion.div>
 
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter text-[var(--text-1)] mb-6">
-            This weekend, do something
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter text-[var(--text-1)] mb-10">
+            This weekend,
             <br />
-            <span className="text-gradient">about it.</span>
+            <span className="text-gradient">do something about it.</span>
           </h2>
-
-          <p className="max-w-xl mx-auto text-lg md:text-xl text-[var(--text-2)] leading-relaxed mb-10">
-            Another Saturday scrolling? Or a real plan with real people at a
-            real place? Your city is full of people who want to meet. They just
-            need someone to go first.
-          </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <a
@@ -42,12 +36,6 @@ export default function FinalCTA() {
               Plan Your First Date
               <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1.5" />
             </a>
-            <a
-              href="#how-it-works"
-              className="inline-flex items-center gap-2 px-8 py-5 rounded-full btn-ghost text-base font-semibold"
-            >
-              See How It Works
-            </a>
           </div>
 
           <motion.p
@@ -55,10 +43,9 @@ export default function FinalCTA() {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.5, duration: 0.6 }}
-            className="mt-10 text-sm text-[var(--text-3)]"
+            className="mt-8 text-sm text-[var(--text-3)]"
           >
-            Free to start. No payment between users. Show up when you&apos;re
-            ready.
+            Free to start. No payment between users.
           </motion.p>
         </motion.div>
       </div>

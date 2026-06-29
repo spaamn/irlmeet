@@ -1,44 +1,26 @@
 ﻿"use client";
 
 import { motion } from "framer-motion";
-import { Calendar, Gavel, Users, Shield, Bell, Trophy } from "lucide-react";
+import { Calendar, Users, Shield } from "lucide-react";
 
 const features = [
   {
     icon: Calendar,
     title: "Plan the date you actually want",
     description:
-      "Not a profile. Not a prompt. A real plan: chai at your favourite spot, a trek to that fort, a concert next Friday. You set the scene. They show up for it.",
-  },
-  {
-    icon: Gavel,
-    title: "People express interest. You choose.",
-    description:
-      "Real people see your date and want in. You pick who joins. No algorithms deciding for you. You stay in control of who you meet.",
+      "Chai at your favourite spot, a trek to that fort, a concert next Friday. You set the scene. They show up for it.",
   },
   {
     icon: Users,
-    title: "Meet in person. Safely.",
+    title: "You choose who joins",
     description:
-      "Group dates or one-on-one. Verified profiles only. Bring a friend if you want. Meet in public places. Safety isn't a feature here, it's the foundation.",
+      "People express interest. You pick. Group dates or one-on-one. Verified profiles only. You stay in control.",
   },
   {
     icon: Shield,
-    title: "Verified identities. Always.",
+    title: "Safe by design",
     description:
-      "Phone + ID verification. Women can restrict to women-only or verified-only groups. Every person you meet is who they say they are.",
-  },
-  {
-    icon: Bell,
-    title: "Never miss a good plan",
-    description:
-      "Someone posted a date you'd love? Get notified instantly. New dates in your city go live every hour. The good ones fill up fast.",
-  },
-  {
-    icon: Trophy,
-    title: "Build your reputation",
-    description:
-      "Show up, get rated, earn trust. The best hosts get featured. Your track record becomes your credibility. The community rewards people who follow through.",
+      "Phone + ID verification. Women-only options. Bring a friend. Meet in public. Safety isn't a feature, it's the foundation.",
   },
 ];
 
@@ -72,19 +54,11 @@ export default function Features() {
           transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
-          <span className="inline-block px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider bg-[var(--accent)]/10 text-[var(--accent)] mb-4">
-            Why irlmeet
-          </span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-[var(--text-1)] mb-4">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-[var(--text-1)] mb-12">
             Stop chatting.
             <br />
             Start meeting.
           </h2>
-          <p className="max-w-xl mx-auto text-[var(--text-2)] text-lg">
-            Other apps keep you on the app. We get you off it. Every feature
-            exists to move you from &ldquo;let&apos;s meet&rdquo; to actually
-            meeting.
-          </p>
         </motion.div>
 
         {/* Feature cards grid */}
@@ -93,7 +67,7 @@ export default function Features() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-50px" }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"
+          className="grid grid-cols-1 md:grid-cols-3 gap-5"
         >
           {features.map((feature) => (
             <motion.div

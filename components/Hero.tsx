@@ -1,26 +1,13 @@
 ﻿"use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, Sparkles, ChevronDown } from "lucide-react";
+import { ArrowRight, ChevronDown } from "lucide-react";
 
 export default function Hero() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24 pb-20">
       {/* Content */}
       <div className="relative z-10 mx-auto max-w-5xl px-4 md:px-8 text-center">
-        {/* Badge */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.1 }}
-          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full glass mb-10"
-        >
-          <Sparkles className="w-4 h-4 text-[var(--accent)]" />
-          <span className="text-sm font-medium text-[var(--text-2)]">
-            Made in India. For people who believe in real meetings.
-          </span>
-        </motion.div>
-
         {/* Headline */}
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
@@ -40,11 +27,10 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
-          className="max-w-2xl mx-auto text-lg md:text-xl text-[var(--text-2)] leading-relaxed mb-12"
+          className="max-w-xl mx-auto text-lg md:text-xl text-[var(--text-2)] leading-relaxed mb-12"
         >
-          A coffee date. A trek. A pottery workshop. A concert. Post what you
-          actually want to do, and who with. No swiping. No endless chats. Just
-          real plans with real people who show up.
+          No swiping. No endless chats. Just real plans with real people who
+          show up.
         </motion.p>
 
         {/* CTA Buttons */}

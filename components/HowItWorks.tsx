@@ -7,30 +7,30 @@ const steps = [
   {
     number: "01",
     icon: PenLine,
-    title: "You plan a date",
+    title: "Plan",
     description:
-      "Not a bio. A real plan: \"Chai at Blue Tokai, Saturday 11am, max 4 people.\" Set the vibe, pick the spot, hit post.",
+      "Post a real date: \"Chai at Blue Tokai, Saturday 11am, max 4 people.\"",
   },
   {
     number: "02",
     icon: Megaphone,
-    title: "People in your city see it",
+    title: "Invite",
     description:
-      "Your date goes live. Real people nearby see it. Some just browse. Others think \"this is exactly my vibe\" and tap Join.",
+      "People in your city see it. The right ones tap Join.",
   },
   {
     number: "03",
     icon: Coins,
-    title: "You choose who joins",
+    title: "Choose",
     description:
-      "See who's interested. Check their profile, ratings, and verification. Pick the people you want to spend time with. You decide.",
+      "See who's interested. Pick who you want to spend time with.",
   },
   {
     number: "04",
     icon: Handshake,
-    title: "You meet in real life",
+    title: "Meet",
     description:
-      "Show up. Have a great time. Rate the experience. That's it. No games. No ghosting. Just people who actually showed up.",
+      "Show up. Have a great time. Rate the experience.",
   },
 ];
 
@@ -57,19 +57,11 @@ export default function HowItWorks() {
           transition={{ duration: 0.5 }}
           className="text-center mb-16 md:mb-20"
         >
-          <span className="inline-block px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider bg-[var(--accent)]/10 text-[var(--accent)] mb-4">
-            How It Works
-          </span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-[var(--text-1)] mb-4">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-[var(--text-1)] mb-12 md:mb-16">
             Four steps.
             <br />
             Zero drama.
           </h2>
-          <p className="max-w-xl mx-auto text-[var(--text-2)] text-lg">
-            From your first post to your first real meeting. No endless
-            matching. No &ldquo;hey&rdquo; messages. Just a straight line to
-            showing up.
-          </p>
         </motion.div>
 
         {/* Steps */}
