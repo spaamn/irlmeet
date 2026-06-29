@@ -6,34 +6,34 @@ import { Star, TrendingUp, Quote } from "lucide-react";
 
 const testimonials = [
   {
-    name: "Sarah M.",
-    avatar: "SM",
-    role: "Posted her first date in March",
-    text: "I was skeptical. I posted a picnic at the botanical garden expecting nothing. Got 14 bids in an hour. The guy who won brought a guitar. We've been together four months now.",
+    name: "Ananya S.",
+    avatar: "AS",
+    role: "Mumbai, 26",
+    text: "I posted a brunch at Bastian and 8 people wanted to join within an hour. I picked 3. We still meet every weekend. I've made more real friends in 2 months than 2 years on other apps.",
     rating: 5,
   },
   {
-    name: "James K.",
-    avatar: "JK",
-    role: "Won 6 auctions, counting",
-    text: "I've tried every dating app. This is the only one where I actually look forward to showing up. You already know the person wants to be there. That changes everything.",
+    name: "Rohan K.",
+    avatar: "RK",
+    role: "Bangalore, 29",
+    text: "I've tried every app. This is the only one where I actually show up. You already know the plan, the place, and the people. No awkward \"so what do you want to do?\" texts.",
     rating: 5,
   },
   {
-    name: "Priya R.",
-    avatar: "PR",
-    role: "New to NYC, zero network",
-    text: "Moved here for work, didn't know anyone. Within three weeks I'd been on four real dates. A pottery class, two dinners, a sunrise hike. I've never felt less lonely in a new city.",
+    name: "Meera P.",
+    avatar: "MP",
+    role: "Delhi, 24",
+    text: "My parents would never let me use a dating app. But group dates at public places? With verified people? They were okay with it. I've been on 5 dates and felt safe every time.",
     rating: 5,
   },
 ];
 
 const liveBids = [
-  { user: "alex_d", date: "Rooftop Jazz Night", amount: 185, time: "2m ago" },
-  { user: "maya.xo", date: "Sunset Sailing Trip", amount: 340, time: "5m ago" },
-  { user: "devon_94", date: "Art Gallery + Wine", amount: 120, time: "8m ago" },
-  { user: "luna.rose", date: "Cooking Class Date", amount: 210, time: "12m ago" },
-  { user: "kai_north", date: "Hiking Adventure", amount: 95, time: "15m ago" },
+  { user: "neha_m", date: "Chai at Blue Tokai, Koramangala", amount: 4, time: "2m ago" },
+  { user: "arjun.r", date: "Trek to Sinhagad Fort, Pune", amount: 6, time: "5m ago" },
+  { user: "diya_s", date: "Pottery Workshop, Hauz Khas", amount: 3, time: "8m ago" },
+  { user: "karan_v", date: "Live Jazz at AntiSOCIAL", amount: 5, time: "12m ago" },
+  { user: "isha_p", date: "Brunch at Bastian, Mumbai", amount: 4, time: "15m ago" },
 ];
 
 export default function SocialProof() {
@@ -69,7 +69,7 @@ export default function SocialProof() {
           className="text-center mb-16"
         >
           <span className="inline-block px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider bg-[var(--accent)]/10 text-[var(--accent)] mb-4">
-            Real people, real dates
+            Real people, real meetups
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-[var(--text-1)] mb-4">
             Don&apos;t take our word for it.
@@ -77,8 +77,8 @@ export default function SocialProof() {
             Take theirs.
           </h2>
           <p className="max-w-xl mx-auto text-[var(--text-2)] text-lg">
-            Thousands of people have already stopped swiping and started showing
-            up. Here&apos;s what happened.
+            Thousands of people across India have stopped swiping and started
+            showing up. Here&apos;s what happened.
           </p>
         </motion.div>
 
@@ -148,7 +148,7 @@ export default function SocialProof() {
               <div className="flex items-center gap-2 mb-5">
                 <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
                 <span className="text-sm font-semibold text-[var(--text-1)]">
-                  Live Bids
+                  Live Activity
                 </span>
                 <TrendingUp className="w-4 h-4 text-[var(--accent)] ml-auto" />
               </div>
@@ -194,7 +194,7 @@ export default function SocialProof() {
                 href="#"
                 className="mt-5 block w-full text-center py-3 rounded-xl btn-accent text-sm font-semibold"
               >
-                Join the Action
+                Find a Date Near You
               </a>
             </div>
           </motion.div>
@@ -209,10 +209,10 @@ export default function SocialProof() {
           className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4"
         >
           {[
-            { value: "50K+", label: "People showing up" },
+            { value: "50K+", label: "People meeting IRL" },
             { value: "200K+", label: "Dates posted" },
-            { value: "$2.1M", label: "In bids placed" },
-            { value: "98%", label: "Actually met up" },
+            { value: "15+", label: "Cities in India" },
+            { value: "98%", label: "Showed up on time" },
           ].map((stat) => (
             <div
               key={stat.label}

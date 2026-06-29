@@ -7,30 +7,30 @@ const steps = [
   {
     number: "01",
     icon: PenLine,
-    title: "You post a date",
+    title: "You plan a date",
     description:
-      "Not a bio. Not a photo gallery. A real plan: \"Sunset hike at Runyon, Saturday 6pm, my treat.\" Set a starting bid. Hit post.",
+      "Not a bio. A real plan: \"Chai at Blue Tokai, Saturday 11am, max 4 people.\" Set the vibe, pick the spot, hit post.",
   },
   {
     number: "02",
     icon: Megaphone,
-    title: "People see it and want in",
+    title: "People in your city see it",
     description:
-      "Your date hits the feed. Real people in your city see it. Some just scroll. Others think \"hell yes\" and place a bid.",
+      "Your date goes live. Real people nearby see it. Some just browse. Others think \"this is exactly my vibe\" and tap Join.",
   },
   {
     number: "03",
     icon: Coins,
-    title: "The auction climbs",
+    title: "You choose who joins",
     description:
-      "Bids roll in. You watch the number climb. Every dollar is someone raising their hand saying \"pick me.\" Timer counts down.",
+      "See who's interested. Check their profile, ratings, and verification. Pick the people you want to spend time with. You decide.",
   },
   {
     number: "04",
     icon: Handshake,
     title: "You meet in real life",
     description:
-      "Winner's confirmed. You swap numbers. Pick the exact spot. Show up. No games. Just two people who both said yes.",
+      "Show up. Have a great time. Rate the experience. That's it. No games. No ghosting. Just people who actually showed up.",
   },
 ];
 
@@ -63,11 +63,12 @@ export default function HowItWorks() {
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-[var(--text-1)] mb-4">
             Four steps.
             <br />
-            Zero small talk.
+            Zero drama.
           </h2>
           <p className="max-w-xl mx-auto text-[var(--text-2)] text-lg">
-            From your first post to your first real date. No endless matching.
-            No &ldquo;hey&rdquo; messages. Just a straight line to showing up.
+            From your first post to your first real meeting. No endless
+            matching. No &ldquo;hey&rdquo; messages. Just a straight line to
+            showing up.
           </p>
         </motion.div>
 

@@ -6,7 +6,7 @@ const footerLinks = {
   Product: ["Features", "How It Works", "Pricing", "Safety"],
   Company: ["About", "Blog", "Careers", "Press"],
   Support: ["Help Center", "Contact", "Privacy Policy", "Terms of Service"],
-  Community: ["Discord", "Twitter", "Instagram", "Nostr"],
+  Community: ["WhatsApp", "Instagram", "Twitter", "Discord"],
 };
 
 export default function Footer() {
@@ -25,8 +25,8 @@ export default function Footer() {
               </span>
             </a>
             <p className="text-sm text-[var(--text-2)] leading-relaxed mb-5">
-              The dating app for people who are done swiping. Post a date, get
-              bids, meet in real life.
+              Plan a date. Invite people. Meet in person. Made in India for
+              people who believe in real connections.
             </p>
             {/* Social icons */}
             <div className="flex gap-2">

@@ -6,39 +6,39 @@ import { Calendar, Gavel, Users, Shield, Bell, Trophy } from "lucide-react";
 const features = [
   {
     icon: Calendar,
-    title: "Post the date you actually want",
+    title: "Plan the date you actually want",
     description:
-      "Not a profile. Not a prompt. A real plan: rooftop drinks at sunset, that new gallery, a cooking class. You set the scene. They show up for it.",
+      "Not a profile. Not a prompt. A real plan: chai at your favourite spot, a trek to that fort, a concert next Friday. You set the scene. They show up for it.",
   },
   {
     icon: Gavel,
-    title: "They compete to join you",
+    title: "People express interest. You choose.",
     description:
-      "Every bid is someone saying \"I want to be there.\" Watch the auction climb. Feel wanted. Pick the person who made the best offer.",
+      "Real people see your date and want in. You pick who joins. No algorithms deciding for you. You stay in control of who you meet.",
   },
   {
     icon: Users,
-    title: "Meet. For real.",
+    title: "Meet in person. Safely.",
     description:
-      "No three weeks of texting. No \"we should hang out sometime.\" Auction ends, you meet. Face to face. The way dating used to work.",
+      "Group dates or one-on-one. Verified profiles only. Bring a friend if you want. Meet in public places. Safety isn't a feature here, it's the foundation.",
   },
   {
     icon: Shield,
-    title: "Verified, rated, safe",
+    title: "Verified identities. Always.",
     description:
-      "Real profiles. Mutual ratings after every date. Optional chaperone mode. You know who's showing up and the community vouches for them.",
+      "Phone + ID verification. Women can restrict to women-only or verified-only groups. Every person you meet is who they say they are.",
   },
   {
     icon: Bell,
-    title: "Never miss the moment",
+    title: "Never miss a good plan",
     description:
-      "Someone just outbid you on a dream date? You know instantly. The auction moves fast. The notifications move faster.",
+      "Someone posted a date you'd love? Get notified instantly. New dates in your city go live every hour. The good ones fill up fast.",
   },
   {
     icon: Trophy,
-    title: "Become someone people bid on",
+    title: "Build your reputation",
     description:
-      "Complete dates, earn your rating, climb the leaderboard. The best creators get featured. Your track record is your dating resume.",
+      "Show up, get rated, earn trust. The best hosts get featured. Your track record becomes your credibility. The community rewards people who follow through.",
   },
 ];
 
@@ -76,14 +76,14 @@ export default function Features() {
             Why irlmeet
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-[var(--text-1)] mb-4">
-            You&apos;re not a profile.
+            Stop chatting.
             <br />
-            You&apos;re the experience.
+            Start meeting.
           </h2>
           <p className="max-w-xl mx-auto text-[var(--text-2)] text-lg">
-            Other apps sell attention. We sell moments. Every feature exists to
-            get you from &ldquo;nice to meet you&rdquo; to &ldquo;nice to meet
-            <em> you</em>&rdquo; faster.
+            Other apps keep you on the app. We get you off it. Every feature
+            exists to move you from &ldquo;let&apos;s meet&rdquo; to actually
+            meeting.
           </p>
         </motion.div>
 

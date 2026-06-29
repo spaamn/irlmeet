@@ -2,16 +2,17 @@
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "irlmeet  Create. Bid. Meet in Real Life.",
+  title: "irlmeet — Plan a Date. Invite People. Meet in Person.",
   description:
-    "The dating auction platform where you create real-life date experiences, let others bid to join, and meet in person. Premium connections start here.",
+    "The dating app where you plan real-life dates, invite people, and meet in person. No swiping. No endless chats. Just real plans with real people. Made in India.",
   keywords: [
     "dating",
-    "auction",
     "real life dates",
     "meetup",
     "irl",
-    "dating marketplace",
+    "dating app india",
+    "group dates",
+    "meet in person",
   ],
 };
 
