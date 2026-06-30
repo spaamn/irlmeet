@@ -36,6 +36,12 @@ export default function FinalCTA() {
               Plan Your First Date
               <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1.5" />
             </a>
+            <a
+              href="/dates"
+              className="inline-flex items-center gap-2 px-8 py-5 rounded-full btn-ghost text-base font-semibold"
+            >
+              Browse Dates
+            </a>
           </div>
 
           <motion.p

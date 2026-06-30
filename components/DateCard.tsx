@@ -78,14 +78,37 @@ export function DateCard({ date }: { date: DatePost }) {
 
       {/* Action */}
       <div className="mt-auto">
-        {isInterested ? (
-          <button disabled className="w-full py-2.5 rounded-xl glass-btn text-sm font-medium text-[var(--text-2)] flex items-center justify-center gap-1.5">
-            <Heart className="w-3.5 h-3.5" fill="currentColor" /> Interested
-          </button>
+        {!user ? (
+          <Link
+            href="/signup"
+            className="w-full py-2.5 rounded-xl btn-accent text-sm font-semibold flex items-center justify-center"
+          >
+            Sign up to join
+          </Link>
+        ) : isInterested ? (
+          <div className="space-y-2">
+            <button disabled className="w-full py-2.5 rounded-xl glass-btn text-sm font-medium text-[var(--text-2)] flex items-center justify-center gap-1.5">
+              <Heart className="w-3.5 h-3.5" fill="currentColor" /> Interested
+            </button>
+            <Link
+              href="/dates"
+              className="w-full py-2 rounded-lg text-xs text-center text-[var(--accent)] hover:underline block"
+            >
+              Browse more dates
+            </Link>
+          </div>
         ) : isFull ? (
-          <button disabled className="w-full py-2.5 rounded-xl glass-btn text-sm font-medium text-[var(--text-3)]">
-            Full
-          </button>
+          <div className="space-y-2">
+            <button disabled className="w-full py-2.5 rounded-xl glass-btn text-sm font-medium text-[var(--text-3)]">
+              Full
+            </button>
+            <Link
+              href="/dates/new"
+              className="w-full py-2 rounded-lg text-xs text-center text-[var(--accent)] hover:underline block"
+            >
+              Plan your own date
+            </Link>
+          </div>
         ) : (
           <button
             onClick={handleJoin}

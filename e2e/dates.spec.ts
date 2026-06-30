@@ -15,7 +15,7 @@ async function signupAndGoToDashboard(page) {
 test.describe("Date Creation Flow", () => {
   test("can navigate to create date from dashboard", async ({ page }) => {
     await signupAndGoToDashboard(page);
-    await page.getByRole("link", { name: /Plan a Date/i }).click();
+    await page.getByRole('banner').getByRole('link', { name: 'Plan a Date' }).click();
     await expect(page).toHaveURL(/\/dates\/new/);
     await expect(page.getByRole("heading", { name: /Plan a date/i })).toBeVisible();
   });

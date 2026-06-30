@@ -76,7 +76,7 @@ export default function DashboardPage() {
 
         {openDates.length === 0 ? (
           <div className="glass-card p-8 text-center">
-            <p className="text-[var(--text-2)] mb-4">No dates yet. Be the first to plan one!</p>
+            <p className="text-[var(--text-2)] mb-4">No dates in your area yet. Be the first!</p>
             <Link href="/dates/new" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl btn-accent text-sm font-semibold">
               <Plus className="w-4 h-4" /> Plan a Date
             </Link>

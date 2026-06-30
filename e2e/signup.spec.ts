@@ -48,7 +48,7 @@ test.describe("Signup Flow", () => {
 
   test("login link navigates to login page", async ({ page }) => {
     await page.goto("/signup");
-    await page.getByRole("link", { name: /Log in/i }).click();
+    await page.getByRole('paragraph').filter({ hasText: 'Already have an account?' }).getByRole('link', { name: 'Log in' }).click();
     await expect(page).toHaveURL(/\/login/);
   });
 });

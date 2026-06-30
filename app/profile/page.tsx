@@ -100,19 +100,29 @@ export default function ProfilePage() {
         </div>
 
         {/* Actions */}
-        <div className="flex gap-3">
-          <button
-            onClick={() => updateProfile({ verified: true })}
-            className="flex-1 py-3 rounded-xl btn-ghost text-sm font-semibold flex items-center justify-center gap-2"
-          >
-            <Shield className="w-4 h-4" /> Get Verified
-          </button>
-          <button
-            onClick={logout}
-            className="flex-1 py-3 rounded-xl glass-btn text-sm font-semibold text-[var(--text-2)] flex items-center justify-center gap-2"
-          >
-            <LogOut className="w-4 h-4" /> Log out
-          </button>
+        <div className="space-y-3">
+          {!user.verified && (
+            <button
+              onClick={() => updateProfile({ verified: true })}
+              className="w-full py-3 rounded-xl btn-accent text-sm font-semibold flex items-center justify-center gap-2"
+            >
+              <Shield className="w-4 h-4" /> Get Verified (unlock more dates)
+            </button>
+          )}
+          <div className="flex gap-3">
+            <Link
+              href="/dates/new"
+              className="flex-1 py-3 rounded-xl btn-ghost text-sm font-semibold flex items-center justify-center gap-2"
+            >
+              <Plus className="w-4 h-4" /> Plan a Date
+            </Link>
+            <button
+              onClick={logout}
+              className="flex-1 py-3 rounded-xl glass-btn text-sm font-semibold text-[var(--text-2)] flex items-center justify-center gap-2"
+            >
+              <LogOut className="w-4 h-4" /> Log out
+            </button>
+          </div>
         </div>
       </div>
     </div>

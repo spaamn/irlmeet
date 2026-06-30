@@ -1,5 +1,6 @@
 ﻿import type { Metadata } from "next";
 import "./globals.css";
+import AppNav from "@/components/AppNav";
 
 export const metadata: Metadata = {
   title: "irlmeet — Plan a Date. Invite People. Meet in Person.",
@@ -46,6 +47,7 @@ export default function RootLayout({
           <div className="mesh-orb mesh-orb-2" />
         </div>
         <div className="noise-overlay" aria-hidden="true" />
+        <AppNav />
         <div className="relative z-10">
           {children}
         </div>

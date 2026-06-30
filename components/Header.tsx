@@ -1,6 +1,8 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
 import { Heart, Menu, X } from "lucide-react";
 import ThemeToggle from "./ThemeToggle";
@@ -12,6 +14,8 @@ const navLinks = [
 ];
 
 export default function Header() {
+  const pathname = usePathname();
+  const isAppPage = pathname !== "/";
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 
@@ -20,6 +24,9 @@ export default function Header() {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  // Don't show landing header on app pages
+  if (isAppPage) return null;
 
   return (
     <motion.header
@@ -37,14 +44,14 @@ export default function Header() {
         style={scrolled ? { padding: "0.75rem 1.5rem" } : {}}
       >
         <div className="flex items-center justify-between">
-          <a href="#" className="flex items-center gap-2.5 group">
+          <Link href="/" className="flex items-center gap-2.5 group">
             <div className="w-9 h-9 rounded-xl btn-accent flex items-center justify-center shadow-glow">
               <Heart className="w-4 h-4 text-white" fill="white" />
             </div>
             <span className="text-lg font-semibold tracking-tight text-[var(--text-1)]">
               irlmeet
             </span>
-          </a>
+          </Link>
 
           <nav className="hidden md:flex items-center gap-1">
             {navLinks.map((link) => (
@@ -60,12 +67,12 @@ export default function Header() {
 
           <div className="flex items-center gap-3">
             <ThemeToggle />
-            <a
+            <Link
               href="/signup"
               className="hidden md:inline-flex items-center px-5 py-2.5 rounded-full btn-accent text-sm font-semibold"
             >
               Get Started
-            </a>
+            </Link>
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
               className="md:hidden w-10 h-10 rounded-full glass-btn flex items-center justify-center"
@@ -99,12 +106,12 @@ export default function Header() {
                   {link.label}
                 </a>
               ))}
-              <a
+              <Link
                 href="/signup"
                 className="mt-2 px-5 py-3 rounded-xl btn-accent text-sm font-semibold text-center"
               >
                 Get Started
-              </a>
+              </Link>
             </div>
           </motion.nav>
         )}
