@@ -24,14 +24,29 @@ export function DateCard({ date }: { date: DatePost }) {
   };
 
   return (
-    <div className="glass-card p-5 flex flex-col">
+    <Link href={`/dates/${date.id}`} className="glass-card p-5 flex flex-col group">
+      {/* Cover image */}
+      <div className="aspect-[16/9] rounded-xl overflow-hidden mb-3 -mx-1 -mt-1">
+        {date.coverImage ? (
+          <img
+            src={date.coverImage}
+            alt={date.title}
+            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+          />
+        ) : (
+          <div className="w-full h-full bg-gradient-to-br from-[var(--accent)]/15 to-[var(--accent)]/5 flex items-center justify-center">
+            <Calendar className="w-8 h-8 text-[var(--accent)]/30" />
+          </div>
+        )}
+      </div>
+
       {/* Header */}
-      <div className="flex items-start justify-between mb-3">
-        <div>
-          <h3 className="font-semibold text-[var(--text-1)]">{date.title}</h3>
+      <div className="flex items-start justify-between mb-2">
+        <div className="min-w-0 flex-1">
+          <h3 className="font-semibold text-[var(--text-1)] truncate group-hover:text-[var(--accent)] transition-colors">{date.title}</h3>
           <p className="text-xs text-[var(--text-3)] mt-0.5">by {date.creatorName} ({date.creatorRating})</p>
         </div>
-        <span className={`px-2 py-0.5 rounded-full text-[10px] font-semibold ${
+        <span className={`px-2 py-0.5 rounded-full text-[10px] font-semibold shrink-0 ml-2 ${
           date.status === "open" ? "bg-green-500/10 text-green-500" : "bg-[var(--text-3)]/10 text-[var(--text-3)]"
         }`}>
           {date.status}
@@ -39,23 +54,26 @@ export function DateCard({ date }: { date: DatePost }) {
       </div>
 
       {/* Details */}
-      <div className="space-y-1.5 mb-4 text-sm text-[var(--text-2)]">
+      <div className="space-y-1 mb-3 text-sm text-[var(--text-2)]">
         <div className="flex items-center gap-2">
           <Calendar className="w-3.5 h-3.5 text-[var(--accent)]" />
-          <span>{date.date} at {date.time}</span>
+          <span>{new Date(date.date).toLocaleDateString("en-IN", { month: "short", day: "numeric" })} at {date.time}</span>
         </div>
         <div className="flex items-center gap-2">
           <MapPin className="w-3.5 h-3.5 text-[var(--accent)]" />
-          <span>{date.location}</span>
+          <span className="truncate">{date.venueName || date.location}</span>
         </div>
         <div className="flex items-center gap-2">
           <Users className="w-3.5 h-3.5 text-[var(--accent)]" />
           <span>{date.currentPeople}/{date.maxPeople} people</span>
+          {date.maxPeople - date.currentPeople <= 2 && date.maxPeople - date.currentPeople > 0 && (
+            <span className="text-[10px] text-amber-500 font-medium">· Filling fast</span>
+          )}
         </div>
       </div>
 
       {/* Tags */}
-      <div className="flex flex-wrap gap-1.5 mb-4">
+      <div className="flex flex-wrap gap-1.5 mb-3">
         {date.isGroup && (
           <span className="px-2 py-0.5 rounded-full text-[10px] font-medium bg-blue-500/10 text-blue-500">Group</span>
         )}
@@ -64,7 +82,7 @@ export function DateCard({ date }: { date: DatePost }) {
         )}
         {date.verifiedOnly && (
           <span className="px-2 py-0.5 rounded-full text-[10px] font-medium bg-amber-500/10 text-amber-500 flex items-center gap-0.5">
-            <Shield className="w-2.5 h-2.5" /> Verified only
+            <Shield className="w-2.5 h-2.5" /> Verified
           </span>
         )}
       </div>
@@ -79,45 +97,29 @@ export function DateCard({ date }: { date: DatePost }) {
       {/* Action */}
       <div className="mt-auto">
         {!user ? (
-          <Link
-            href="/signup"
-            className="w-full py-2.5 rounded-xl btn-accent text-sm font-semibold flex items-center justify-center"
-          >
+          <span className="w-full py-2.5 rounded-xl btn-accent text-sm font-semibold flex items-center justify-center">
             Sign up to join
-          </Link>
+          </span>
         ) : isInterested ? (
-          <div className="space-y-2">
-            <button disabled className="w-full py-2.5 rounded-xl glass-btn text-sm font-medium text-[var(--text-2)] flex items-center justify-center gap-1.5">
-              <Heart className="w-3.5 h-3.5" fill="currentColor" /> Interested
-            </button>
-            <Link
-              href="/dates"
-              className="w-full py-2 rounded-lg text-xs text-center text-[var(--accent)] hover:underline block"
-            >
-              Browse more dates
-            </Link>
-          </div>
+          <span className="w-full py-2.5 rounded-xl glass-btn text-sm font-medium text-[var(--text-2)] flex items-center justify-center gap-1.5">
+            <Heart className="w-3.5 h-3.5" fill="currentColor" /> Interested
+          </span>
         ) : isFull ? (
-          <div className="space-y-2">
-            <button disabled className="w-full py-2.5 rounded-xl glass-btn text-sm font-medium text-[var(--text-3)]">
-              Full
-            </button>
-            <Link
-              href="/dates/new"
-              className="w-full py-2 rounded-lg text-xs text-center text-[var(--accent)] hover:underline block"
-            >
-              Plan your own date
-            </Link>
-          </div>
+          <span className="w-full py-2.5 rounded-xl glass-btn text-sm font-medium text-[var(--text-3)]">
+            Full
+          </span>
         ) : (
-          <button
-            onClick={handleJoin}
-            className="w-full py-2.5 rounded-xl btn-accent text-sm font-semibold"
+          <span
+            onClick={(e) => {
+              e.preventDefault();
+              handleJoin();
+            }}
+            className="w-full py-2.5 rounded-xl btn-accent text-sm font-semibold flex items-center justify-center cursor-pointer"
           >
             Express Interest
-          </button>
+          </span>
         )}
       </div>
-    </div>
+    </Link>
   );
 }

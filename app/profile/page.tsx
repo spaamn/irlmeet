@@ -2,7 +2,7 @@
 
 import { useAuthStore } from "@/lib/store/auth";
 import { useDatesStore } from "@/lib/store/dates";
-import { Shield, Star, Calendar, LogOut } from "lucide-react";
+import { Shield, Star, Calendar, LogOut, Plus } from "lucide-react";
 import Link from "next/link";
 
 export default function ProfilePage() {

@@ -18,6 +18,8 @@ export default function NewDatePage() {
     title: "",
     description: "",
     activity: "Coffee",
+    category: "Social",
+    tags: [] as string[],
     location: "",
     city: user?.city || "Mumbai",
     date: "",
@@ -26,6 +28,7 @@ export default function NewDatePage() {
     isGroup: true,
     womenOnly: false,
     verifiedOnly: false,
+    vibe: "",
   });
 
   if (!user) {
@@ -46,6 +49,12 @@ export default function NewDatePage() {
       creatorId: user.id,
       creatorName: user.name,
       creatorRating: user.rating,
+      creatorBadges: [],
+      coverImage: undefined,
+      images: [],
+      venueName: form.location.split(",")[0] || form.location,
+      duration: 120,
+      reviews: [],
       ...form,
     });
     router.push("/dashboard");
