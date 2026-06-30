@@ -29,9 +29,9 @@ export function DateCard({ date }: { date: DatePost }) {
   };
 
   return (
-    <Link href={`/dates/${date.id}`} className="glass-card p-5 flex flex-col group">
+    <Link href={`/dates/${date.id}`} className="glass-card p-4 flex flex-col group">
       {/* Cover image */}
-      <div className="aspect-[16/9] rounded-xl overflow-hidden mb-3 -mx-1 -mt-1">
+      <div className="aspect-[16/9] rounded-lg overflow-hidden mb-3 -mx-1 -mt-1">
         {date.coverImage ? (
           <img
             src={date.coverImage}
@@ -51,7 +51,7 @@ export function DateCard({ date }: { date: DatePost }) {
           <h3 className="font-semibold text-[var(--text-1)] truncate group-hover:text-[var(--accent)] transition-colors">{date.title}</h3>
           <p className="text-xs text-[var(--text-3)] mt-0.5">by {date.creatorName} ({date.creatorRating})</p>
         </div>
-        <span className={`px-2 py-0.5 rounded-full text-[10px] font-semibold shrink-0 ml-2 ${
+        <span className={`px-2 py-0.5 rounded-full text-xs font-semibold shrink-0 ml-2 ${
           date.status === "open" ? "bg-green-500/10 text-green-500" : "bg-[var(--text-3)]/10 text-[var(--text-3)]"
         }`}>
           {date.status}
@@ -59,7 +59,7 @@ export function DateCard({ date }: { date: DatePost }) {
       </div>
 
       {/* Details */}
-      <div className="space-y-1 mb-3 text-sm text-[var(--text-2)]">
+      <div className="space-y-1.5 mb-3 text-sm text-[var(--text-2)]">
         <div className="flex items-center gap-2">
           <Calendar className="w-3.5 h-3.5 text-[var(--accent)]" />
           <span>{new Date(date.date).toLocaleDateString("en-IN", { month: "short", day: "numeric" })} at {date.time}</span>
@@ -72,7 +72,7 @@ export function DateCard({ date }: { date: DatePost }) {
           <Users className="w-3.5 h-3.5 text-[var(--accent)]" />
           <span>{date.currentPeople}/{date.maxPeople} people</span>
           {date.maxPeople - date.currentPeople <= 2 && date.maxPeople - date.currentPeople > 0 && (
-            <span className="text-[10px] text-amber-500 font-medium">· Filling fast</span>
+            <span className="text-xs text-amber-500 font-medium">· Filling fast</span>
           )}
         </div>
       </div>
@@ -80,13 +80,13 @@ export function DateCard({ date }: { date: DatePost }) {
       {/* Tags */}
       <div className="flex flex-wrap gap-1.5 mb-3">
         {date.isGroup && (
-          <span className="px-2 py-0.5 rounded-full text-[10px] font-medium bg-blue-500/10 text-blue-500">Group</span>
+          <span className="px-2 py-0.5 rounded-full text-xs font-medium bg-blue-500/10 text-blue-500">Group</span>
         )}
         {date.womenOnly && (
-          <span className="px-2 py-0.5 rounded-full text-[10px] font-medium bg-purple-500/10 text-purple-500">Women only</span>
+          <span className="px-2 py-0.5 rounded-full text-xs font-medium bg-purple-500/10 text-purple-500">Women only</span>
         )}
         {date.verifiedOnly && (
-          <span className="px-2 py-0.5 rounded-full text-[10px] font-medium bg-amber-500/10 text-amber-500 flex items-center gap-0.5">
+          <span className="px-2 py-0.5 rounded-full text-xs font-medium bg-amber-500/10 text-amber-500 flex items-center gap-0.5">
             <Shield className="w-2.5 h-2.5" /> Verified
           </span>
         )}

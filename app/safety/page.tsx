@@ -27,7 +27,7 @@ export default function SafetyPage() {
         </div>
 
         {/* Emergency Button */}
-        <div className="glass-card p-6 mb-6 border border-red-500/20">
+        <div className="glass-card p-6 mb-6 border border-red-500/30">
           <div className="flex items-start gap-4">
             <div className="w-12 h-12 rounded-full bg-red-500/10 flex items-center justify-center shrink-0">
               <AlertTriangle className="w-6 h-6 text-red-500" />

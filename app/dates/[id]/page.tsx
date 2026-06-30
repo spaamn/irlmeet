@@ -33,7 +33,7 @@ export default function EventDetailPage() {
   if (!date) {
     return (
       <div className="min-h-screen flex items-center justify-center px-4 pt-20">
-        <div className="glass-card p-8 text-center max-w-md">
+        <div className="glass-card p-8 text-center max-w-lg">
           <AlertCircle className="w-12 h-12 text-[var(--text-3)] mx-auto mb-4" />
           <h2 className="text-xl font-bold text-[var(--text-1)] mb-3">Date not found</h2>
           <p className="text-sm text-[var(--text-2)] mb-6">
@@ -173,7 +173,7 @@ export default function EventDetailPage() {
             </div>
 
             {/* The Plan */}
-            <div className="glass-card p-5">
+            <div className="glass-card p-6">
               <h2 className="text-lg font-semibold text-[var(--text-1)] mb-3">The Plan</h2>
               <p className="text-[var(--text-2)] leading-relaxed">{date.description}</p>
             </div>
@@ -227,17 +227,17 @@ export default function EventDetailPage() {
                     <p className="text-sm font-medium text-[var(--text-1)]">Safety</p>
                     <div className="flex flex-wrap gap-1.5 mt-1">
                       {date.isGroup && (
-                        <span className="px-2 py-0.5 rounded-full text-[10px] font-medium bg-blue-500/10 text-blue-500">
+                        <span className="px-2 py-0.5 rounded-full text-xs font-medium bg-blue-500/10 text-blue-500">
                           Group date
                         </span>
                       )}
                       {date.womenOnly && (
-                        <span className="px-2 py-0.5 rounded-full text-[10px] font-medium bg-purple-500/10 text-purple-500">
+                        <span className="px-2 py-0.5 rounded-full text-xs font-medium bg-purple-500/10 text-purple-500">
                           Women only
                         </span>
                       )}
                       {date.verifiedOnly && (
-                        <span className="px-2 py-0.5 rounded-full text-[10px] font-medium bg-amber-500/10 text-amber-500">
+                        <span className="px-2 py-0.5 rounded-full text-xs font-medium bg-amber-500/10 text-amber-500">
                           Verified only
                         </span>
                       )}

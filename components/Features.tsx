@@ -73,9 +73,9 @@ export default function Features() {
             <motion.div
               key={feature.title}
               variants={cardVariants}
-              className="glass-card p-7 group cursor-default"
+              className="glass-card p-6 group cursor-default"
             >
-              <div className="w-12 h-12 rounded-2xl btn-accent flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300">
+              <div className="w-11 h-11 rounded-xl btn-accent flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
                 <feature.icon className="w-5 h-5 text-white" />
               </div>
               <h3 className="text-lg font-semibold text-[var(--text-1)] mb-2">

@@ -43,10 +43,10 @@ export default function DashboardPage() {
             <Link href="/dates/new" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl btn-accent text-sm font-semibold">
               <Plus className="w-4 h-4" /> Plan a Date
             </Link>
-            <Link href="/profile" className="w-10 h-10 rounded-full glass-btn flex items-center justify-center">
+            <Link href="/profile" className="w-9 h-9 rounded-full glass-btn flex items-center justify-center">
               <User className="w-4 h-4 text-[var(--text-2)]" />
             </Link>
-            <button onClick={logout} className="w-10 h-10 rounded-full glass-btn flex items-center justify-center">
+            <button onClick={logout} className="w-9 h-9 rounded-full glass-btn flex items-center justify-center">
               <LogOut className="w-4 h-4 text-[var(--text-2)]" />
             </button>
           </div>
@@ -59,9 +59,9 @@ export default function DashboardPage() {
             { value: myDates.length, label: "Your dates" },
             { value: user.datesCompleted, label: "Completed" },
           ].map((s) => (
-            <div key={s.label} className="glass-card p-4 text-center">
-              <div className="text-xl font-bold text-[var(--text-1)]">{s.value}</div>
-              <div className="text-xs text-[var(--text-3)]">{s.label}</div>
+            <div key={s.label} className="glass-card p-5 text-center">
+              <div className="text-2xl font-bold text-[var(--text-1)]">{s.value}</div>
+              <div className="text-xs text-[var(--text-3)] mt-1">{s.label}</div>
             </div>
           ))}
         </div>
@@ -75,7 +75,7 @@ export default function DashboardPage() {
         </div>
 
         {openDates.length === 0 ? (
-          <div className="glass-card p-8 text-center">
+          <div className="glass-card p-8 text-center max-w-lg mx-auto">
             <p className="text-[var(--text-2)] mb-4">No dates in your area yet. Be the first!</p>
             <Link href="/dates/new" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl btn-accent text-sm font-semibold">
               <Plus className="w-4 h-4" /> Plan a Date
