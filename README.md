@@ -1,48 +1,68 @@
 # irlmeet
-Meet in Real Life
 
-## 🏗️ Tech Stack
+**Plan a date. Invite people. Meet in person.**
 
-### Frontend
+The dating app for people who are done swiping. Post real-life date experiences, let others express interest, and meet face to face. Made in India with safety-first design.
 
-- **Next.js 15.4.6** - React framework with App Router
-- **React 18** - UI library with hooks and client components
-- **TypeScript 5.5.4** - Type-safe development
-- **Tailwind CSS 3.x** - Utility-first styling with @tailwindcss/typography
-- **Lucide React** - Modern icon library
-- **Framer Motion** - Animation library
+**Live**: [irlmeet.vercel.app](https://irlmeet.vercel.app)
 
-### Nostr Integration
+---
 
-- **nostr-tools 2.17.0** - Nostr protocol implementation (NIPs 01, 05, 07, 17, 19, 23, 33, 44)
-- **WebSocket** - Real-time relay connections to 8 high-reliability relays
-- **Blossom Client SDK 4.1.0** - Decentralized media protocol (NIP-96)
+## Tech Stack
 
-### State Management
+| Layer | Technology |
+|-------|-----------|
+| **Framework** | Next.js 16 (App Router) + React 18 |
+| **Language** | TypeScript 5.5 |
+| **Styling** | Tailwind CSS 3.x + custom glassmorphic design system |
+| **State** | Zustand 5 (with localStorage persistence) |
+| **Animations** | Framer Motion |
+| **Icons** | Lucide React |
+| **Testing** | Playwright (E2E) |
+| **Deployment** | Vercel |
 
-- **Zustand 5.0.8** - Lightweight state management
-- **React Hooks** - Local component state
-- **IndexedDB (idb 8.0.3)** - Client-side data persistence
+---
 
-### Rich Text & Communication
+## Features
 
-- **Tiptap 3.6.2** - Extensible rich text editor with extensions:
-  - Character count, color, highlight, links
-  - Tables, task lists, text alignment
-  - Subscript, superscript, YouTube embeds
-- **Tiptap Markdown** - Markdown conversion support
-- **React Markdown** - Markdown rendering with remark-gfm
+- **Landing page** — glassmorphic design with light/dark mode
+- **Signup/Login** — 2-step onboarding with profile creation
+- **Browse dates** — filter by city, activity, and time (today, tomorrow, weekend)
+- **Event detail** — rich descriptions, cover images, host profiles, safety info
+- **Create dates** — full form with activity type, location, safety toggles
+- **Express interest** — reversible (tap to undo)
+- **Profile** — manage your dates, interests, verification
+- **Safety center** — emergency button, guidelines, tips
+- **Notifications** — unread count with dropdown
 
-### Media & File Handling
+---
 
-- **Blossom Protocol** - Decentralized media storage (NIP-96)
-- **React Easy Crop 5.5.3** - Image cropping and editing
-- **Multi-file progress tracking** - Batch upload management
+## Testing
 
-### Development Tools
+```bash
+npm run test:e2e          # headless
+npm run test:e2e -- --headed   # visible browser
+```
 
-- **ESLint 8.57** - Code linting with TypeScript support
-- **Prettier 3.3** - Code formatting
-- **PostCSS** - CSS processing with Autoprefixer
-- **Vercel Analytics 1.5.0** - Performance monitoring
-- **Upstash Redis 1.35.6** - Edge-compatible caching
+---
+
+## Getting Started
+
+```bash
+npm install
+npm run dev        # http://localhost:3000
+npm run build
+npm run test:e2e
+```
+
+---
+
+## Deployment
+
+Every push to `main` triggers Vercel production deployment.
+
+**Production**: https://irlmeet.vercel.app
+
+---
+
+*Built for people who show up.*
