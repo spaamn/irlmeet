@@ -3,7 +3,8 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useAuthStore } from "@/lib/store/auth";
-import { Heart, Plus, Search, User, LogOut, Home, Calendar } from "lucide-react";
+import { Heart, Plus, Search, User, LogOut, Home, Calendar, Shield } from "lucide-react";
+import NotificationBell from "./NotificationBell";
 
 export default function AppNav() {
   const pathname = usePathname();
@@ -60,6 +61,14 @@ export default function AppNav() {
           <div className="flex items-center gap-2">
             {isAuthenticated ? (
               <>
+                <Link
+                  href="/safety"
+                  className="w-9 h-9 rounded-full glass-btn flex items-center justify-center"
+                  aria-label="Safety"
+                >
+                  <Shield className="w-3.5 h-3.5 text-[var(--text-2)]" />
+                </Link>
+                <NotificationBell />
                 <Link
                   href="/dates/new"
                   className="hidden md:inline-flex items-center gap-1.5 px-4 py-2 rounded-full btn-accent text-sm font-semibold"
