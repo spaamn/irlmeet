@@ -61,11 +61,13 @@ interface DatesState {
   dates: DatePost[];
   addDate: (date: Omit<DatePost, "id" | "interested" | "confirmed" | "currentPeople" | "status" | "createdAt">) => string;
   expressInterest: (dateId: string, user: InterestedUser) => void;
+  withdrawInterest: (dateId: string, userId: string) => void;
   confirmUser: (dateId: string, userId: string) => void;
   cancelDate: (dateId: string) => void;
   completeDate: (dateId: string) => void;
   getDatesByCity: (city: string) => DatePost[];
   getDatesByCreator: (creatorId: string) => DatePost[];
+  getUserInterests: (userId: string) => DatePost[];
 }
 
 const SAMPLE_DATES: DatePost[] = [
@@ -257,6 +259,14 @@ export const useDatesStore = create<DatesState>()(
               : d
           ),
         })),
+      withdrawInterest: (dateId, userId) =>
+        set((state) => ({
+          dates: state.dates.map((d) =>
+            d.id === dateId
+              ? { ...d, interested: d.interested.filter((i) => i.userId !== userId) }
+              : d
+          ),
+        })),
       confirmUser: (dateId, userId) =>
         set((state) => ({
           dates: state.dates.map((d) =>
@@ -286,6 +296,8 @@ export const useDatesStore = create<DatesState>()(
         get().dates.filter((d) => d.city === city && d.status === "open"),
       getDatesByCreator: (creatorId) =>
         get().dates.filter((d) => d.creatorId === creatorId),
+      getUserInterests: (userId) =>
+        get().dates.filter((d) => d.interested.some((i) => i.userId === userId)),
     }),
     { name: "irlmeet-dates" }
   )

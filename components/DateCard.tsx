@@ -8,19 +8,24 @@ import Link from "next/link";
 export function DateCard({ date }: { date: DatePost }) {
   const user = useAuthStore((s) => s.user);
   const expressInterest = useDatesStore((s) => s.expressInterest);
+  const withdrawInterest = useDatesStore((s) => s.withdrawInterest);
 
   const isInterested = date.interested.some((i) => i.userId === user?.id);
   const isFull = date.currentPeople >= date.maxPeople;
 
-  const handleJoin = () => {
+  const handleToggleInterest = () => {
     if (!user) return;
-    expressInterest(date.id, {
-      userId: user.id,
-      name: user.name,
-      rating: user.rating,
-      verified: user.verified,
-      timestamp: new Date().toISOString(),
-    });
+    if (isInterested) {
+      withdrawInterest(date.id, user.id);
+    } else {
+      expressInterest(date.id, {
+        userId: user.id,
+        name: user.name,
+        rating: user.rating,
+        verified: user.verified,
+        timestamp: new Date().toISOString(),
+      });
+    }
   };
 
   return (
@@ -101,9 +106,14 @@ export function DateCard({ date }: { date: DatePost }) {
             Sign up to join
           </span>
         ) : isInterested ? (
-          <span className="w-full py-2.5 rounded-xl glass-btn text-sm font-medium text-[var(--text-2)] flex items-center justify-center gap-1.5">
-            <Heart className="w-3.5 h-3.5" fill="currentColor" /> Interested
-          </span>
+          <div className="space-y-2">
+            <span
+              onClick={(e) => { e.preventDefault(); handleToggleInterest(); }}
+              className="w-full py-2.5 rounded-xl glass-btn text-sm font-medium text-[var(--accent)] flex items-center justify-center gap-1.5 cursor-pointer hover:bg-red-500/10 hover:text-red-500 transition-colors"
+            >
+              <Heart className="w-3.5 h-3.5" fill="currentColor" /> Interested — tap to undo
+            </span>
+          </div>
         ) : isFull ? (
           <span className="w-full py-2.5 rounded-xl glass-btn text-sm font-medium text-[var(--text-3)]">
             Full
@@ -112,7 +122,7 @@ export function DateCard({ date }: { date: DatePost }) {
           <span
             onClick={(e) => {
               e.preventDefault();
-              handleJoin();
+              handleToggleInterest();
             }}
             className="w-full py-2.5 rounded-xl btn-accent text-sm font-semibold flex items-center justify-center cursor-pointer"
           >

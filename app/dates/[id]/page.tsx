@@ -25,6 +25,7 @@ export default function EventDetailPage() {
   const { user, isAuthenticated } = useAuthStore();
   const dates = useDatesStore((s) => s.dates);
   const expressInterest = useDatesStore((s) => s.expressInterest);
+  const withdrawInterest = useDatesStore((s) => s.withdrawInterest);
 
   const date = dates.find((d) => d.id === params.id) as DatePost | undefined;
   const [showShareMenu, setShowShareMenu] = useState(false);
@@ -53,15 +54,19 @@ export default function EventDetailPage() {
   const isFull = date.currentPeople >= date.maxPeople;
   const spotsLeft = date.maxPeople - date.currentPeople;
 
-  const handleExpressInterest = () => {
+  const handleToggleInterest = () => {
     if (!user) return;
-    expressInterest(date.id, {
-      userId: user.id,
-      name: user.name,
-      rating: user.rating,
-      verified: user.verified,
-      timestamp: new Date().toISOString(),
-    });
+    if (isInterested) {
+      withdrawInterest(date.id, user.id);
+    } else {
+      expressInterest(date.id, {
+        userId: user.id,
+        name: user.name,
+        rating: user.rating,
+        verified: user.verified,
+        timestamp: new Date().toISOString(),
+      });
+    }
   };
 
   const handleAddToCalendar = () => {
@@ -276,11 +281,14 @@ export default function EventDetailPage() {
                   </>
                 ) : isInterested ? (
                   <>
-                    <div className="py-3 rounded-xl glass-btn text-sm font-medium text-[var(--text-2)] flex items-center justify-center gap-1.5">
-                      <Heart className="w-4 h-4" fill="currentColor" /> You expressed interest
-                    </div>
+                    <button
+                      onClick={handleToggleInterest}
+                      className="w-full py-3 rounded-xl bg-red-500/10 text-red-500 text-sm font-medium flex items-center justify-center gap-1.5 hover:bg-red-500/20 transition-colors"
+                    >
+                      <Heart className="w-4 h-4" fill="currentColor" /> Withdraw interest
+                    </button>
                     <p className="text-xs text-[var(--text-3)] text-center">
-                      The host will confirm your spot.
+                      You expressed interest. The host will confirm your spot.
                     </p>
                   </>
                 ) : isFull ? (
@@ -289,14 +297,14 @@ export default function EventDetailPage() {
                   </div>
                 ) : (
                   <button
-                    onClick={handleExpressInterest}
+                    onClick={handleToggleInterest}
                     className="w-full py-3 rounded-xl btn-accent text-sm font-semibold"
                   >
                     Express Interest
                   </button>
                 )}
 
-                {isAuthenticated && !isFull && (
+                {isAuthenticated && !isFull && !isInterested && (
                   <button
                     onClick={handleAddToCalendar}
                     className="w-full py-2.5 rounded-xl btn-ghost text-sm font-medium flex items-center justify-center gap-1.5"

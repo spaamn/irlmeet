@@ -2,12 +2,13 @@
 
 import { useAuthStore } from "@/lib/store/auth";
 import { useDatesStore } from "@/lib/store/dates";
-import { Shield, Star, Calendar, LogOut, Plus } from "lucide-react";
+import { Shield, Star, Calendar, LogOut, Plus, X, ExternalLink } from "lucide-react";
 import Link from "next/link";
 
 export default function ProfilePage() {
   const { user, logout, updateProfile } = useAuthStore();
   const dates = useDatesStore((s) => s.dates);
+  const cancelDate = useDatesStore((s) => s.cancelDate);
   const myDates = dates.filter((d) => d.creatorId === user?.id);
   const interestedIn = dates.filter((d) => d.interested.some((i) => i.userId === user?.id));
 
@@ -57,23 +58,45 @@ export default function ProfilePage() {
         <div className="glass-card p-6">
           <h2 className="text-lg font-semibold text-[var(--text-1)] mb-4">Dates you planned ({myDates.length})</h2>
           {myDates.length === 0 ? (
-            <p className="text-sm text-[var(--text-3)]">You haven't planned any dates yet.</p>
+            <div className="text-center py-4">
+              <p className="text-sm text-[var(--text-3)] mb-3">You haven't planned any dates yet.</p>
+              <Link href="/dates/new" className="inline-flex items-center gap-2 px-4 py-2 rounded-xl btn-accent text-sm font-semibold">
+                <Plus className="w-4 h-4" /> Plan your first date
+              </Link>
+            </div>
           ) : (
             <div className="space-y-3">
               {myDates.map((d) => (
-                <div key={d.id} className="flex items-center justify-between p-3 rounded-xl bg-[var(--glass-bg)]">
-                  <div>
-                    <p className="text-sm font-medium text-[var(--text-1)]">{d.title}</p>
-                    <p className="text-xs text-[var(--text-3)]">{d.date} | {d.interested.length} interested</p>
+                <div key={d.id} className="p-3 rounded-xl bg-[var(--glass-bg)]">
+                  <div className="flex items-center justify-between mb-2">
+                    <Link href={`/dates/${d.id}`} className="text-sm font-medium text-[var(--text-1)] hover:text-[var(--accent)] transition-colors">
+                      {d.title}
+                    </Link>
+                    <span className={`px-2 py-0.5 rounded-full text-[10px] font-semibold ${
+                      d.status === "open" ? "bg-green-500/10 text-green-500" :
+                      d.status === "confirmed" ? "bg-blue-500/10 text-blue-500" :
+                      d.status === "completed" ? "bg-amber-500/10 text-amber-500" :
+                      "bg-[var(--text-3)]/10 text-[var(--text-3)]"
+                    }`}>
+                      {d.status}
+                    </span>
                   </div>
-                  <span className={`px-2 py-0.5 rounded-full text-[10px] font-semibold ${
-                    d.status === "open" ? "bg-green-500/10 text-green-500" :
-                    d.status === "confirmed" ? "bg-blue-500/10 text-blue-500" :
-                    d.status === "completed" ? "bg-amber-500/10 text-amber-500" :
-                    "bg-[var(--text-3)]/10 text-[var(--text-3)]"
-                  }`}>
-                    {d.status}
-                  </span>
+                  <div className="flex items-center justify-between">
+                    <p className="text-xs text-[var(--text-3)]">{d.date} at {d.time} · {d.interested.length} interested</p>
+                    <div className="flex items-center gap-2">
+                      <Link href={`/dates/${d.id}`} className="text-xs text-[var(--accent)] hover:underline flex items-center gap-0.5">
+                        <ExternalLink className="w-3 h-3" /> View
+                      </Link>
+                      {d.status === "open" && (
+                        <button
+                          onClick={() => cancelDate(d.id)}
+                          className="text-xs text-red-500 hover:underline flex items-center gap-0.5"
+                        >
+                          <X className="w-3 h-3" /> Cancel
+                        </button>
+                      )}
+                    </div>
+                  </div>
                 </div>
               ))}
             </div>
@@ -84,14 +107,24 @@ export default function ProfilePage() {
         <div className="glass-card p-6">
           <h2 className="text-lg font-semibold text-[var(--text-1)] mb-4">Dates you're interested in ({interestedIn.length})</h2>
           {interestedIn.length === 0 ? (
-            <p className="text-sm text-[var(--text-3)]">You haven't expressed interest in any dates yet.</p>
+            <div className="text-center py-4">
+              <p className="text-sm text-[var(--text-3)] mb-3">You haven't expressed interest in any dates yet.</p>
+              <Link href="/dates" className="inline-flex items-center gap-2 px-4 py-2 rounded-xl btn-accent text-sm font-semibold">
+                Browse dates
+              </Link>
+            </div>
           ) : (
             <div className="space-y-3">
               {interestedIn.map((d) => (
-                <div key={d.id} className="flex items-center justify-between p-3 rounded-xl bg-[var(--glass-bg)]">
-                  <div>
-                    <p className="text-sm font-medium text-[var(--text-1)]">{d.title}</p>
-                    <p className="text-xs text-[var(--text-3)]">by {d.creatorName} | {d.date}</p>
+                <div key={d.id} className="p-3 rounded-xl bg-[var(--glass-bg)]">
+                  <Link href={`/dates/${d.id}`} className="text-sm font-medium text-[var(--text-1)] hover:text-[var(--accent)] transition-colors">
+                    {d.title}
+                  </Link>
+                  <div className="flex items-center justify-between mt-1">
+                    <p className="text-xs text-[var(--text-3)]">by {d.creatorName} | {d.date} at {d.time}</p>
+                    <Link href={`/dates/${d.id}`} className="text-xs text-[var(--accent)] hover:underline">
+                      View details
+                    </Link>
                   </div>
                 </div>
               ))}
