@@ -41,7 +41,7 @@ export default function Hero() {
           className="flex flex-col sm:flex-row items-center justify-center gap-4"
         >
           <a
-            href="#"
+            href="/signup"
             className="group inline-flex items-center gap-2.5 px-9 py-4 rounded-full btn-accent text-base font-semibold"
           >
             Plan Your First Date

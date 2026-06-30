@@ -30,7 +30,7 @@ export default function FinalCTA() {
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <a
-              href="#"
+              href="/signup"
               className="group inline-flex items-center gap-2.5 px-10 py-5 rounded-full btn-accent text-lg font-semibold"
             >
               Plan Your First Date

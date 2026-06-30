@@ -61,7 +61,7 @@ export default function Header() {
           <div className="flex items-center gap-3">
             <ThemeToggle />
             <a
-              href="#"
+              href="/signup"
               className="hidden md:inline-flex items-center px-5 py-2.5 rounded-full btn-accent text-sm font-semibold"
             >
               Get Started
@@ -100,7 +100,7 @@ export default function Header() {
                 </a>
               ))}
               <a
-                href="#"
+                href="/signup"
                 className="mt-2 px-5 py-3 rounded-xl btn-accent text-sm font-semibold text-center"
               >
                 Get Started
